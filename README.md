@@ -1,6 +1,11 @@
 # v-nouislider
 Vue component for dual range sliders using [noUiSlider.js](https://refreshless.com/nouislider/)
 
+![Alt text](/screenshot.png?raw=true "v-nouislider screenshot")
+
+## DEMO
+
+https://codepen.io/Tardigrad/pen/xoepOV?editors=1010
 
 ## Usage
 
@@ -26,10 +31,4 @@ Vue component for dual range sliders using [noUiSlider.js](https://refreshless.c
     <script src="//cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.0.2/nouislider.min.js"></script>
     
 
-## DEMO
 
-https://codepen.io/Tardigrad/pen/xoepOV?editors=1010
-
-## Screenshot
-
-![Alt text](/screenshot.png?raw=true "v-nouislider screenshot")
