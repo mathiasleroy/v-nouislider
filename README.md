@@ -5,7 +5,7 @@ Vue component for dual range sliders using [noUiSlider.js](https://refreshless.c
 
 
 
-## DEMO
+## Demo
 
 https://codepen.io/Tardigrad/pen/xoepOV?editors=1010
 
