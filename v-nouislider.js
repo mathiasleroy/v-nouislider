@@ -1,21 +1,34 @@
 Vue.component('v-nouislider', {
-  // CF https://refreshless.com/nouislider/ for options
-  
   props: ['stops','snap','step', 'vmodel'],
   data:{
     myid: null,
+    default: [0,100],
   },
   mounted: function(){
+    // console.log('----== v-nouislider '+this._uid+' ==----')
     var that=this;
     
-    // PROPS ==================================
+    that.default = [0,100];
+    var myformat = {to:v=>Math.round(v/that.step)*that.step, from:v=>v};
+    
+    // PROPS ================================== 
+    // step ---
+    if(!that.step) that.step=1;
+    // console.log('step:', that.step) 
+    // vmodel ---
+    if(!that.vmodel) that.vmodel='default';
+    // console.log('vmodel:', that.vmodel) 
+    // vmodelval ---
+    if(that.vmodel.split('.').length<2) vmodelval = that[that.vmodel];
+    else vmodelval = that[that.vmodel.split('.')[0]][that.vmodel.split('.')[1]];
+    // console.log('vmodelval:', vmodelval) 
+    // stops ---
+    if(!that.stops) that.stops = vmodelval;
+    // console.log('stops:', that.stops) 
+    // snap ---
     that.snap=true;
     if(that.stops.length==2) that.snap=false;
-    if(!that.step) that.step=1;
-    var vmodelval = that[that.vmodel.split('.')[0]][that.vmodel.split('.')[1]];
     
-    
-    var myformat = {to:v=>Math.round(v/that.step)*that.step, from:v=>v};
     
     // FORMATTING RANGE AT EQUAL INTERVALS ==================================
     // CREATE continuous range      
@@ -27,10 +40,11 @@ Vue.component('v-nouislider', {
       else if(i==thisstops.length-1) rr.max=d;
       else rr[Math.round(100*(100*i/(thisstops.length-1)))/100+'%']=d;
     });
+    console.log(thisstops)
     // e.g. -->   { 'min': 0, '10%': 10, '50%': 80, '80%': 150, 'max': 200 }
     
     
-    myid = document.getElementById('slider-rdate-'+this._uid);
+    myid = document.getElementById('slider-'+this._uid);
     that.myid = myid;
     
     // CREATING THE SLIDER ==================================
@@ -63,8 +77,8 @@ Vue.component('v-nouislider', {
     myid.noUiSlider.on('update',(val, handle) => {
       val = [+val[0],+val[1]].sort((a, b) => a - b);
       
-      tt1 = $('#slider-rdate-'+this._uid +' .noUi-tooltip:eq(0)');
-      tt2 = $('#slider-rdate-'+this._uid +' .noUi-tooltip:eq(1)'); 
+      tt1 = $('#slider-'+this._uid +' .noUi-tooltip:eq(0)');
+      tt2 = $('#slider-'+this._uid +' .noUi-tooltip:eq(1)'); 
       // they can be inverted in the DOM
       // if(+tt1.text() > +tt2.text()) {
       //   console.log('INVERTED !!!')
@@ -90,5 +104,5 @@ Vue.component('v-nouislider', {
     });
     
   },
-  template: `<div :id="'slider-rdate-'+this._uid" class="froboto"></div>`
+  template: `<div :id="'slider-'+this._uid" class="froboto"></div>`
 });
