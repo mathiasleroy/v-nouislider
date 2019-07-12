@@ -1,7 +1,5 @@
 # v-nouislider
-Vue component for dual range sliders using noUiSlider.js
-
-Cf. https://refreshless.com/nouislider/ for customization options
+Vue component for dual range sliders using [noUiSlider.js](https://refreshless.com/nouislider/)
 
 
 ## Usage
