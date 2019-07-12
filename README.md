@@ -29,3 +29,7 @@ Vue component for dual range sliders using [noUiSlider.js](https://refreshless.c
 ## DEMO
 
 https://codepen.io/Tardigrad/pen/xoepOV?editors=1010
+
+## Screenshot
+
+![Alt text](/relative/path/to/screenshot.png?raw=true "v-nouislider screenshot")
