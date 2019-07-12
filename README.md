@@ -1,7 +1,9 @@
 # v-nouislider
-Vue component for dual range sliders using [noUiSlider.js](https://refreshless.com/nouislider/)
+Vue component for dual range sliders using [noUiSlider.js](https://refreshless.com/nouislider/) + simple Material Design CSS.
 
 ![Alt text](/screenshot.png?raw=true "v-nouislider screenshot")
+
+
 
 ## DEMO
 
@@ -31,4 +33,8 @@ https://codepen.io/Tardigrad/pen/xoepOV?editors=1010
     <script src="//cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.0.2/nouislider.min.js"></script>
     
 
+## Features
 
+- Material design
+- Collision detection
+- 2-way binding with $root data
