@@ -11,7 +11,7 @@ Vue.component('v-nouislider', {
     // PROPS ==================================
     that.snap=true;
     if(that.stops.length==2) that.snap=false;
-    if(!that.step) that.step=0;
+    if(!that.step) that.step=1;
     var vmodelval = that[that.vmodel.split('.')[0]][that.vmodel.split('.')[1]];
     
     
