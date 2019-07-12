@@ -11,7 +11,7 @@ https://codepen.io/Tardigrad/pen/xoepOV?editors=1010
 
 ## Usage
 
-
+```html
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.0.2/nouislider.min.css" >
     <link rel="stylesheet" href="style.css" >
     
@@ -32,6 +32,7 @@ https://codepen.io/Tardigrad/pen/xoepOV?editors=1010
     <script src="v-nouislider.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.0.2/nouislider.min.js"></script>
     
+```
 
 ## Features
 
