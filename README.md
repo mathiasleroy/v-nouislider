@@ -26,3 +26,8 @@ Cf. https://refreshless.com/nouislider/ for customization options
     
     <script src="v-nouislider.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.0.2/nouislider.min.js"></script>
+    
+
+## DEMO
+
+https://codepen.io/Tardigrad/pen/xoepOV?editors=1010
