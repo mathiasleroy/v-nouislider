@@ -32,4 +32,4 @@ https://codepen.io/Tardigrad/pen/xoepOV?editors=1010
 
 ## Screenshot
 
-![Alt text](/relative/path/to/screenshot.png?raw=true "v-nouislider screenshot")
+![Alt text](/screenshot.png?raw=true "v-nouislider screenshot")
