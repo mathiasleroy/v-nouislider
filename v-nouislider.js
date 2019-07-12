@@ -104,5 +104,5 @@ Vue.component('v-nouislider', {
     });
     
   },
-  template: `<div :id="'slider-'+this._uid" class="froboto"></div>`
+  template: `<div :id="'slider-'+this._uid"></div>`
 });
