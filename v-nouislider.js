@@ -8,8 +8,7 @@ Vue.component('v-nouislider', {
     // console.log('----== v-nouislider '+this._uid+' ==----')
     var that=this;
     
-    that.default = [0,100];
-    var myformat = {to:v=>Math.round(v/that.step)*that.step, from:v=>v};
+    // that.default = [0,100];
     
     // PROPS ================================== 
     // step ---
@@ -29,6 +28,11 @@ Vue.component('v-nouislider', {
     that.snap=true;
     if(that.stops.length==2) that.snap=false;
     
+    // FORMAT ---
+    // var myformat = {to:v=>Math.round(v/that.step)*that.step, from:v=>v}; // creates sometimes rounding bugs
+    // var myformat = {to:v=>Math.round(v*1000)/1000, from:v=>v};
+    var myformat = {to:v=> (Math.round(v*1000)/1000+'?').replace('000000?','M').replace('000?','k').replace('?','') , from:v=>v};
+    
     
     // FORMATTING RANGE AT EQUAL INTERVALS ==================================
     // CREATE continuous range      
@@ -40,7 +44,6 @@ Vue.component('v-nouislider', {
       else if(i==thisstops.length-1) rr.max=d;
       else rr[Math.round(100*(100*i/(thisstops.length-1)))/100+'%']=d;
     });
-    console.log(thisstops)
     // e.g. -->   { 'min': 0, '10%': 10, '50%': 80, '80%': 150, 'max': 200 }
     
     
