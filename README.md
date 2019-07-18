@@ -46,8 +46,10 @@ https://codepen.io/Tardigrad/pen/xoepOV?editors=1010
 - noUiSlider-14.0.2
 
 ## Props
-- **stops**: array of numbers | where the slider must stop. If only 2 values then the slider will be continuous
-- **step**: number | only used if 2 stops (min-max), defines hard stops when slider is continuous
-- **vmodel**: data variable | to be used as the usual `v-model`
-- **bigNumbers**: bool | set to 1 to replace bug number to shorter notation  e.g.  9000000->9M, 500000->500k
+|  | Expected | Description |
+| -------- | -------- | -------- |
+| **stops** | array of numbers | where the slider must stop. If only 2 values then the slider will be continuous (=min-max). Minimum 2 numbers. |
+| **step** | number  | Defines hard stops when slider is continuous (2 stops). |
+| **vmodel** | data variable | To be used as the usual `v-model`. |
+| **bigNumbers** | bool  | Set to "1" to shorten big numbers notation  e.g.  `9000000->9M`, `500000->500k`. |
 
