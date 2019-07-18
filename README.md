@@ -1,4 +1,4 @@
-# v-nouislider
+# <v-nouislider>
 Vue component for dual range sliders using [noUiSlider.js](https://refreshless.com/nouislider/) + simple Material Design CSS.
 
 ![Alt text](/screenshot.png?raw=true "v-nouislider screenshot")
