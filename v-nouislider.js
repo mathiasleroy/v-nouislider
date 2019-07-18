@@ -1,5 +1,5 @@
 Vue.component('v-nouislider', {
-  props: ['stops','snap','step', 'vmodel'],
+  props: ['stops','snap','step', 'vmodel', 'bigNumbers'],
   data:{
     myid: null,
     default: [0,100],
@@ -29,9 +29,8 @@ Vue.component('v-nouislider', {
     if(that.stops.length==2) that.snap=false;
     
     // FORMAT ---
-    // var myformat = {to:v=>Math.round(v/that.step)*that.step, from:v=>v}; // creates sometimes rounding bugs
-    // var myformat = {to:v=>Math.round(v*1000)/1000, from:v=>v};
-    var myformat = {to:v=> (Math.round(v*1000)/1000+'?').replace('000000?','M').replace('000?','k').replace('?','') , from:v=>v};
+    var myFormat = {to:v=>Math.round(v*1000)/1000, from:v=>v};
+    if(that.bigNumbers) myFormat = {to:v=> (Math.round(v*1000)/1000+'?').replace('000000?','M').replace('000?','k').replace('?','') , from:v=>v};
     
     
     // FORMATTING RANGE AT EQUAL INTERVALS ==================================
@@ -55,7 +54,7 @@ Vue.component('v-nouislider', {
       start: vmodelval,
       step: +that.step, // no step in range
       // margin: 5, // no margin in range
-      tooltips: [myformat, myformat], // not needed in 1st because of collision detection
+      tooltips: [myFormat, myFormat], // not needed in 1st because of collision detection
       behaviour: 'unconstrained-drag-tap',
       snap: that.snap,
       connect: true,
@@ -94,13 +93,17 @@ Vue.component('v-nouislider', {
       // var distance = Math.abs(thisstops.indexOf(val[0])-thisstops.indexOf(val[1]));
       if(space<30) {
         tt2.hide();                                                             // hide 2nd tooltip
-        tt1.text(val.join(' - '));                                              // mix 2 val in 1st tooltip
+        if(that.bigNumbers)                                                     // mix 2 val in 1st tooltip
+          tt1.text((val[0]+'?').replace('000000?','M').replace('000?','k').replace('?','') + '–' + (val[1]+'?').replace('000000?','M').replace('000?','k').replace('?','')); 
+        else tt1.text(val.join('–'));
         if(!initleft) initleft = +tt1.css('left').replace('px','');             // store the constant
         tt1.css('left', initleft + space/2);                                    // move to the middle
         tt1.css('width', 'auto');                                               // move to the middle
       }else{                                                                    // restore normal
         tt2.show();
-        tt1.text(val[0]);
+        if(that.bigNumbers) 
+          tt1.text((val[0]+'?').replace('000000?','M').replace('000?','k').replace('?',''));
+        else tt1.text(val[0]);
         if(!initleft) initleft = +tt1.css('left').replace('px','');
         tt1.css('left', initleft);
       }
